@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 
 
 
-export default class CreateExercise extends Component {
+export default class Schedule extends Component {
 
 
   render() {
     return (
       <div>
-       <p>you are on the CreateExercises component!</p>
+       <p>you are on the Schedule component!</p>
       </div>
     )
   }
