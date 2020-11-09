@@ -1,6 +1,6 @@
 const router = require('express').Router();
 let Course = require('../models/course.model');
-
+let Save = require('../models/save.model');
 router.route('/').get((req, res) => {
     Course.find()
     .then(courses => res.json(courses))

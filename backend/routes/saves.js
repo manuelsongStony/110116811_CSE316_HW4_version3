@@ -1,25 +1,60 @@
 const router = require('express').Router();
-let Course = require('../models/course.model');
+let Course1 = require('../models/course.model');
 let Save = require('../models/save.model');
 
 
 router.route('/').get((req, res) => {
-    Course.find()
-    .then(courses => res.json(courses))
+    Save.find()
+    .then(saves => res.json(saves))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
-  const description = req.body.description;
-  const duration = Number(req.body.duration);
-  const date = Date.parse(req.body.date);
+    console.log("SDsfasdffs");
+    const Subject=req.body.Subj
+    
+    const Course=req.body.CRS
+    const CourseName=req.body.Title
+    const Component=req.body.Cmp
+    const Section=req.body.Sctn
+    const Days=req.body.Days
+    const StartTime=req.body['Start Time']
+    const EndTime=req.body['End Time']
+    const StartDate=req.body['Mtg Start Date']
+    const EndDate=req.body['Mtg End Date']
+    const Duration=req.body['Duration']
+    const InstructionMode=req.body['Instruction Mode']
+    const Building=req.body.Building
+    const Room=req.body['Room']
+    const Instructor=req.body['Instr']
+    const EnrollCap=req.body['Enrl Cap']
+    const WaitCap=req.body['Cmbnd Descr']
+    const CombDesc=req.body['Cmbnd Descr']
+    const CombEnrollCap=req.body['Cmbnd Enrl Cap']
+    const TwentyFourFormat = "";
 
   const newSave = new Save({
-    username,
-    description,
-    duration,
-    date,
+     Subject,
+     Course,
+     CourseName,
+     Component,
+     Section,
+     Days,
+     StartTime,
+     EndTime,
+     StartDate,
+     EndDate,
+     Duration,
+     InstructionMode,
+     Building,
+     Room,
+     Instructor,
+     EnrollCap,
+     WaitCap,
+     CombDesc,
+     CombEnrollCap,
+     TwentyFourFormat,
+     
   });
 
   newSave.save()

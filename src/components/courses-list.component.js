@@ -21,7 +21,7 @@ const Course = props => (
     Wait Capacity: {props.course['Wait Cap']}<br></br>
     Combined Description: {props.course['Cmbnd Descr']}<br></br>
     Combined Enrollment Cap: {props.course['Cmbnd Enrl Cap']}<br></br>
-    <Link to={"/shedule/"}>Add</Link>
+    <Link to={"/schedule/"}>Add</Link>
     </pre>
     </div>
 )
