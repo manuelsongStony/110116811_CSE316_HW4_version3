@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ShowCourse from './show-course.component';
+
 
 const Course = props => (
     <div>
@@ -21,7 +23,7 @@ const Course = props => (
     Wait Capacity: {props.course['Wait Cap']}<br></br>
     Combined Description: {props.course['Cmbnd Descr']}<br></br>
     Combined Enrollment Cap: {props.course['Cmbnd Enrl Cap']}<br></br>
-    <Link to={"/schedule/"}>Add</Link>
+    <Link to={"/schedule/"}><button name="add" value="`+ item.id + `">Add Class </button></Link>
     </pre>
     </div>
 )
@@ -47,13 +49,14 @@ export default class CoursesList extends Component {
 
   courseList() {
     return this.state.courses.map(currentcourse => {
-      return <Course course={currentcourse}  key={currentcourse._id} />;
+      return <ShowCourse course={currentcourse}  key={currentcourse._id} />;
     })
   }
 
   render() {
     return (
       <div>
+        
         <h3>Courses</h3>
 
         { this.courseList()}

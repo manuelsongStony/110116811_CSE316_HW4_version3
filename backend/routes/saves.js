@@ -11,27 +11,27 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     console.log("SDsfasdffs");
-    const Subject=req.body.Subj
+    const Subject=req.body.Subject
     
-    const Course=req.body.CRS
-    const CourseName=req.body.Title
-    const Component=req.body.Cmp
-    const Section=req.body.Sctn
+    const Course=req.body.Course
+    const CourseName=req.body.CourseName
+    const Component=req.body.Component
+    const Section=req.body.Section
     const Days=req.body.Days
-    const StartTime=req.body['Start Time']
-    const EndTime=req.body['End Time']
-    const StartDate=req.body['Mtg Start Date']
-    const EndDate=req.body['Mtg End Date']
-    const Duration=req.body['Duration']
-    const InstructionMode=req.body['Instruction Mode']
+    const StartTime=req.body.StartTime
+    const EndTime=req.body.EndTime
+    const StartDate=req.body.StartDate
+    const EndDate=req.body.EndDate
+    const Duration=req.body.Duration
+    const InstructionMode=req.body.InstructionMode
     const Building=req.body.Building
-    const Room=req.body['Room']
-    const Instructor=req.body['Instr']
-    const EnrollCap=req.body['Enrl Cap']
-    const WaitCap=req.body['Cmbnd Descr']
-    const CombDesc=req.body['Cmbnd Descr']
-    const CombEnrollCap=req.body['Cmbnd Enrl Cap']
-    const TwentyFourFormat = "";
+    const Room=req.body.Room
+    const Instructor=req.body.Instructor
+    const EnrollCap=req.body.EnrollCap
+    const WaitCap=req.body.WaitCap
+    const CombDesc=req.body.CombDesc
+    const CombEnrollCap=req.body.CombEnrollCap
+    const TwentyFourFormat = req.body.TwentyFourFormat;
 
   const newSave = new Save({
      Subject,
