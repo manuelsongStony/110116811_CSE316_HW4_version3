@@ -25,6 +25,6 @@ const courseSchema = new Schema({
     TwentyFourFormat: { type: String, required: false }
 });
 
-const Course = mongoose.model('course', courseSchema);
+const Course = mongoose.model('Course', courseSchema);
 
 module.exports = Course;

@@ -31,20 +31,26 @@ export default class Schedule extends Component {
         console.log(error);
       })
   }
-
+  
 
 
   saveList(day) {
     let filteredSave = this.state.saves.filter(currentsave => currentsave.Days.includes(day))
     filteredSave.sort(function(a, b) {
-      if (a.TwentyFourFormat < b.TwentyFourFormat) {
+       
+      if (new Date ('1/1/1999 ' + a.TwentyFourFormat) < new Date ('1/1/1999 ' + b.TwentyFourFormat)) {
+        //console.log("compare"+a.TwentyFourFormat+"and"+b.TwentyFourFormat+"and b is bigger return -1")
         return -1;
       }
-      if (a.TwentyFourFormat > b.TwentyFourFormat) {
+      if (new Date ('1/1/1999 ' + a.TwentyFourFormat) > new Date ('1/1/1999 ' + b.TwentyFourFormat)) {
+       //console.log("compare"+a.TwentyFourFormat+"and"+b.TwentyFourFormat+"and a is bigger return 1")
         return 1;
       }
+     // console.log("0return")
       return 0;
     });
+
+    //console.log(filteredSave)
 
     
     return filteredSave.map(currentsave => {
@@ -55,7 +61,7 @@ export default class Schedule extends Component {
   render() {
     return (
       <div>
-
+        <Link to={"/"}>Return to search</Link>
         <h1> Schedule </h1>
 
         <table>

@@ -46,14 +46,17 @@ export default class CoursesList extends Component {
   componentDidMount() {
     axios.get('http://localhost:5000/courses/')
       .then(response => {
-        this.setState({ courses: response.data })
+        this.setState({ courses: response.data,
+                        allCourses: response.data
+         })
+    
       })
       .catch((error) => {
         console.log(error);
       })
   }
 
-
+ 
 
   courseList() {
     return this.state.courses.map(currentcourse => {
@@ -62,9 +65,11 @@ export default class CoursesList extends Component {
   }
   handleSubmit(event) {
     //alert('Your filter is: ' + this.state.filter+"Your search is: "+this.state.search);
-
+    let temp =this.state.allCourses
+    
+  
     if (this.state.filter === "allFields") {
-      let filteredcourses = this.state.courses.filter(currentsave => currentsave['Subj'].toLowerCase()
+      let filteredcourses = temp.filter(currentsave => currentsave['Subj'].toLowerCase()
       .includes(this.state.search.toLowerCase())|| currentsave['CRS'].toLowerCase()
       .includes(this.state.search.toLowerCase())|| currentsave['Title'].toLowerCase()
       .includes(this.state.search.toLowerCase())|| currentsave['Cmp'].toLowerCase()
@@ -90,35 +95,35 @@ export default class CoursesList extends Component {
   
       });
   } else if (this.state.filter === "courseNum") {
-    let filteredcourses = this.state.courses.filter(currentsave => currentsave['CRS'].toLowerCase()
+    let filteredcourses = temp.filter(currentsave => currentsave['CRS'].toLowerCase()
     .includes(this.state.search.toLowerCase()))
     this.setState({
       courses: filteredcourses
 
     });
   } else if (this.state.filt=== "courseName") {
-    let filteredcourses = this.state.courses.filter(currentsave => currentsave['Title'].toLowerCase()
+    let filteredcourses = temp.filter(currentsave => currentsave['Title'].toLowerCase()
     .includes(this.state.search.toLowerCase()))
     this.setState({
       courses: filteredcourses
 
     });
   } else if (this.state.filter === "instructor") {
-    let filteredcourses = this.state.courses.filter(currentsave => currentsave['Instr'].toLowerCase()
+    let filteredcourses = temp.filter(currentsave => currentsave['Instr'].toLowerCase()
     .includes(this.state.search.toLowerCase()))
     this.setState({
       courses: filteredcourses
 
     });
   } else if (this.state.filter === "day"){
-    let filteredcourses = this.state.courses.filter(currentsave => currentsave['Days'].toLowerCase()
+    let filteredcourses = temp.filter(currentsave => currentsave['Days'].toLowerCase()
     .includes(this.state.search.toLowerCase()))
     this.setState({
       courses: filteredcourses
 
     });
   } else if (this.state.filter === "time"){
-    let filteredcourses = this.state.courses.filter(currentsave => currentsave['Start Time'].toLowerCase()
+    let filteredcourses = temp.filter(currentsave => currentsave['Start Time'].toLowerCase()
     .includes(this.state.search.toLowerCase())|| currentsave['End Time'].toLowerCase()
     .includes(this.state.search.toLowerCase()))
     this.setState({
